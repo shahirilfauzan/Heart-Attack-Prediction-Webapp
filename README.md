@@ -6,7 +6,23 @@ According to World Health Organisation (WHO), every year around 17.9 million dea
 
 Thus, clinicians believe that prevention of heart attack is always better than curing it. After many years of research, scientists and clinicians discovered that, the probability of one’s getting heart attack can be determined by analysing the patient’s age, gender, exercise induced angina, number of major vessels, chest pain indication, resting blood pressure, cholesterol level, fasting blood sugar, resting electrocardiographic results, and maximum heart rate achieved.
 
-The purpose of this project is to predict the chance of someone having a heart attack by using Machine Learning and create application using streamlit.
+The purpose of this project is to predict the chance of someone having a heart attack by using Machine Learning and create application using streamlit by **Analysing Below Features**:
+
+- Age
+
+- Chest Pain Type
+
+- Resting blood pressure (in mm Hg)
+
+- Maximum heart rate achieved
+
+- Exercise induced angina
+
+- ST depression induced by exercise relative to rest
+
+- Number of major vessels
+
+- Thalassemia
 
 # How to Install and Run the Project
 To run this model on your pc, you may need to download all things inside the repository. All the folder inside are already arranged according to the coding, so it's not recommend to change the folder path such as "model" folder to another path. By using the spyder and upload the heart_attack_train.py and run it to get the result. By upload and run the app.py you may see the result of model deployment by using 10 sets of data from the dataset to get a better accuracy of the model and also can access the webapp by using streamlit.
@@ -42,22 +58,26 @@ The Machine Learning algorithms used for this project :
 
 12) StandardScaler + SVC(Scikit-learn)
 
-By using the pipeline method to get the best result by comparing all of the Machine Learning algorithms. The best accuracy is MinMaxScaler + Logistic Regression with accuracy of 0.83. Then by using GridSearchCV to get the best estimator further enhance the result by getting 0.84 accuracy.
+By using the pipeline method to get which is the best method for the model. Thus the result is **MinMaxScaler + Logistic Regression**
 
-![Result Accuracy](https://github.com/shahirilfauzan/Heart-Attack-Prediction-Webapp/blob/c7b37e92ed4ebbec5553ede0427783c39937effa/static/result.PNG)
+# Result
 
-# Model Accuracy
+The images below show the result of the model. The model accuracy is 0.84 after using pipeline to compare the best Machine Learning algorithms and further tuning the parameters by using gridsearchCV to increase the accuracy and this accuracy still can be increased with more data collected, better features selection and model parameter tuning.
 
-![data](https://github.com/shahirilfauzan/Heart-Attack-Prediction-Webapp/blob/7ced659115a02a0f93a7b88a5aceab0171eff75e/static/data.PNG)
+![Result Accuracy](https://github.com/shahirilfauzan/Heart-Attack-Prediction-Webapp/blob/1821dd6c814ebc9c1720481ec2ea961982a816f4/static/result.PNG)
 
-By using 10 sample data set above and compare with the result by using the model deployment the result of accuracy that obtain are 90% which is 9 set of data out of 10 data set are correct
+![Result](https://github.com/shahirilfauzan/Heart-Attack-Prediction-Webapp/blob/1821dd6c814ebc9c1720481ec2ea961982a816f4/static/matrix_result.png)
 
 # Web Application
 By using the web application you can fill the data needed such as patient age, chest pain type, resting blood pressure (in mm Hg), maximum heart rate achieved, exercise induced angina, ST depression induced by exercise relative to rest, number of major vessels, and thalassemia.
 
-## WebApp result
+![streamlit](https://github.com/shahirilfauzan/Heart-Attack-Prediction-Webapp/blob/23133fed24cbee8c2fa0862dea8882f0966591d9/static/result_final_.gif)
 
-![streamlit](https://github.com/shahirilfauzan/Heart-Attack-Prediction-Webapp/blob/7ced659115a02a0f93a7b88a5aceab0171eff75e/static/streamlit_result.PNG)
+Below is the result of the web application by using 10 dataset from the data.csv :
+
+![streamlit](https://github.com/shahirilfauzan/Heart-Attack-Prediction-Webapp/blob/23133fed24cbee8c2fa0862dea8882f0966591d9/static/data_result.PNG)
+
+The result came out with 9 out of 10 dataset able to predict the same outcome, this show that this application have 90% accuracy
 
 # Credits
 This dataset is provided by [RASHIK RAHMAN](https://www.kaggle.com/datasets/rashikrahmanpritom/heart-attack-analysis-prediction-dataset/discussion/234843?sort=votes)
