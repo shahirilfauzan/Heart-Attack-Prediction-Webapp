@@ -6,17 +6,17 @@ Created on Mon Jul 25 09:27:37 2022
 """
 
 from sklearn.ensemble import RandomForestClassifier,GradientBoostingClassifier
+from sklearn.metrics import classification_report,confusion_matrix
 from sklearn.preprocessing import MinMaxScaler,StandardScaler
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LogisticRegression
 from sklearn.neighbors import KNeighborsClassifier
-from sklearn.metrics import classification_report,confusion_matrix
+from sklearn.metrics import ConfusionMatrixDisplay
 from sklearn.model_selection import GridSearchCV
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.impute import KNNImputer
 from sklearn.pipeline import Pipeline
 from sklearn.svm import SVC
-from sklearn.metrics import ConfusionMatrixDisplay
 
 import matplotlib.pyplot as plt
 import scipy.stats as ss
@@ -82,7 +82,6 @@ df.isna().sum() #only caa and thall have NaNs
 
 # 1) Outliers
 # still within the range
-
 
 # 2) Cleaning NaNs
 #KNN
@@ -250,7 +249,7 @@ print(cr)
 
 cm=confusion_matrix(y_test,y_pred)
 
-labels=['not subscribed','subscribed']
+labels=['Low Chance','High Chance']
 disp=ConfusionMatrixDisplay(confusion_matrix=cm,display_labels=labels)
 disp.plot(cmap=plt.cm.Blues)
 plt.show()
