@@ -18,36 +18,7 @@ with open(MODEL_PATH,'rb') as file:
     
     
     
-#%%MODEL DEPLOYMENT
-new_data1=[65,3,142,158,0,2.3,0,1]
-print(model.predict(np.expand_dims(new_data1,axis=0)))
 
-new_data2=[61,0,140,138,1,1.9,1,3]
-print(model.predict(np.expand_dims(new_data2,axis=0)))
-
-new_data3=[45,1,128,172,0,1.4,0,2]
-print(model.predict(np.expand_dims(new_data3,axis=0)))
-
-new_data4=[40,1,125,162,0,0,0,2]
-print(model.predict(np.expand_dims(new_data4,axis=0)))
-
-new_data5=[48,2,132,180,0,0,0,2]
-print(model.predict(np.expand_dims(new_data5,axis=0)))
-
-new_data6=[41,0,108,115,1,2,0,3]
-print(model.predict(np.expand_dims(new_data6,axis=0)))
-
-new_data7=[36,2,121,168,0,0,0,2]
-print(model.predict(np.expand_dims(new_data7,axis=0)))
-
-new_data8=[45,0,111,176,0,0,1,2]
-print(model.predict(np.expand_dims(new_data8,axis=0)))
-
-new_data9=[57,0,155,112,1,0.8,0,3]
-print(model.predict(np.expand_dims(new_data9,axis=0)))
-
-new_data10=[69,2,179,151,1,1.6,0,3]
-print(model.predict(np.expand_dims(new_data10,axis=0)))
 #%% APP DEVELOPMENT
 
 st.markdown("<h1 style='text-align: center; color: grey;'>Heart Attack Prediction App</h1>", unsafe_allow_html=True)
@@ -75,14 +46,14 @@ if submitted:
     outcome = model.predict(new_data)[0]
         
     if outcome == 0:
-            st.write('**YOUR RESULT**')
-            st.write('Congrats you are healthy, Keep it up!!')
+            st.markdown("<h1 style='text-align: center; color: gray;'>YOUR RESULT</h1>", unsafe_allow_html=True)
+            st.markdown("<h1 style='text-align: center; color: green;'>Congrats you are healthy, Keep it up!!</h1>", unsafe_allow_html=True)
             image = Image.open(os.path.join(os.getcwd(),'static','healthy.jpg'))
             st.image(image, use_column_width=True)
             st.balloons()
     else:
-            st.write('**YOUR RESULT**')
-            st.write('You have a high chances of having heart disease')
+            st.markdown("<h1 style='text-align: center; color: gray;'>YOUR RESULT</h1>", unsafe_allow_html=True)
+            st.markdown("<h1 style='text-align: center; color: red;'>You have a high chances of having heart disease</h1>", unsafe_allow_html=True)
             image = Image.open(os.path.join(os.getcwd(),'static','prevent.png'))
             st.image(image, use_column_width=True)
             st.snow()

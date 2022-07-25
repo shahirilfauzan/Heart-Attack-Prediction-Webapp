@@ -10,12 +10,13 @@ from sklearn.preprocessing import MinMaxScaler,StandardScaler
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LogisticRegression
 from sklearn.neighbors import KNeighborsClassifier
-from sklearn.metrics import classification_report
+from sklearn.metrics import classification_report,confusion_matrix
 from sklearn.model_selection import GridSearchCV
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.impute import KNNImputer
 from sklearn.pipeline import Pipeline
 from sklearn.svm import SVC
+from sklearn.metrics import ConfusionMatrixDisplay
 
 import matplotlib.pyplot as plt
 import scipy.stats as ss
@@ -26,15 +27,15 @@ import pickle
 import os
 
 #%%
-def cramers_corrected_stat(confusion_matrix):
+def cramers_corrected_stat(matrix):
     """ calculate Cramers V statistic for categorial-categorial association.
         uses correction from Bergsma and Wicher,
         Journal of the Korean Statistical Society 42 (2013): 323-328
     """
-    chi2 = ss.chi2_contingency(confusion_matrix)[0]
-    n = confusion_matrix.sum()
+    chi2 = ss.chi2_contingency(matrix)[0]
+    n = matrix.sum()
     phi2 = chi2/n
-    r,k = confusion_matrix.shape
+    r,k = matrix.shape
     phi2corr = max(0, phi2 - ((k-1)*(r-1))/(n-1))  
     rcorr = r - ((r-1)**2)/(n-1)
     kcorr = k - ((k-1)**2)/(n-1)
@@ -105,8 +106,8 @@ df = df.drop_duplicates()
 #cramer's V
 for i in cat:
     print(i)
-    confusion_matrix = pd.crosstab(df[i],df['output']).to_numpy()
-    print(cramers_corrected_stat(confusion_matrix))
+    matrix = pd.crosstab(df[i],df['output']).to_numpy()
+    print(cramers_corrected_stat(matrix))
     
 #only choose correlation above 0.40 for cat vs cat : exng,caa,cp,thall 
 
@@ -246,3 +247,13 @@ y_pred = best_pipeline.predict(X_test)
 
 cr = classification_report(y_true,y_pred)
 print(cr)
+
+cm=confusion_matrix(y_test,y_pred)
+
+labels=['not subscribed','subscribed']
+disp=ConfusionMatrixDisplay(confusion_matrix=cm,display_labels=labels)
+disp.plot(cmap=plt.cm.Blues)
+plt.show()
+
+print(confusion_matrix(y_test,y_pred))
+
