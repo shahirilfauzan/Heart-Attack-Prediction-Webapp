@@ -1,4 +1,4 @@
-# Heart-Attack-Prediction-Webapp
+# Heart Attack Prediction By Using Machine Learning With Web Application
  This model is to predict the chance of someone having a heart attack
 
 ## Project Description
