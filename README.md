@@ -66,7 +66,7 @@ The images below show the result of the model. The model accuracy is 0.84 after 
 
 ![Result Accuracy](https://github.com/shahirilfauzan/Heart-Attack-Prediction-Webapp/blob/1821dd6c814ebc9c1720481ec2ea961982a816f4/static/result.PNG)
 
-![Result](https://github.com/shahirilfauzan/Heart-Attack-Prediction-Webapp/blob/1821dd6c814ebc9c1720481ec2ea961982a816f4/static/matrix_result.png)
+![Result](https://github.com/shahirilfauzan/Heart-Attack-Prediction-Webapp/blob/a338b05234e5fc0248063efa8a2fdba270be9e23/static/matrix_result1.png)
 
 # Web Application
 By using the web application you can fill the data needed such as patient age, chest pain type, resting blood pressure (in mm Hg), maximum heart rate achieved, exercise induced angina, ST depression induced by exercise relative to rest, number of major vessels, and thalassemia.
